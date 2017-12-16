@@ -1,13 +1,14 @@
 #include "functions.h"
 
 List *create_list(void)
+// Returns an empty linked list with data and pointer items set to NULL.
 {
-    List *linked_list;
+    List *linked_list;                  // initialise linked list
 
-    linked_list = malloc(sizeof(List));
+    linked_list = malloc(sizeof(List)); // allocate memory
 
-    linked_list->data=NULL;
-    linked_list->next = NULL;
+    linked_list->data=NULL;             // assign NULL to data item
+    linked_list->next = NULL;           // assign end of list pointer
 
     return linked_list;
 }
