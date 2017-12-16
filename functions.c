@@ -1,29 +1,32 @@
 #include "functions.h"
 
-// List *create_list(void)
-// {
-//     List *linked_list;          // initialise linked list
+List *create_list(void)
+{
+    List *linked_list;
 
-//     linked_list->next = NULL;   // set end of linked list
+    linked_list = malloc(sizeof(List));
 
-//     return linked_list;
-// }
+    linked_list->data=NULL;
+    linked_list->next = NULL;
 
-void insert_list(List **list, int data)
+    return linked_list;
+}
+
+void insert_list(List **list, char *data)
 // Inserts an entry into linked list.
 // Requires pointer to pointer in function arguments.
 {
-    List *entry;                    // initialise inserted list
+    List *entry;                    // initialise inserted entry
 
     entry = malloc(sizeof(List));   // allocate memory
-    entry->data = data;             // data item
-    entry->next = *list;            // pointer to start of linked list
+    entry->data = data;             // assign data item
+    entry->next = *list;            // set pointer to start of linked list
 
     *list = entry;                  // set pointer to start of linked list to entry
 }
 
-List *search_list(List *list, int data)
-// Recursively finds list containing search data.
+List *search_list(List *list, char *data)
+// Recursively finds entry containing search data.
 // Returns NULL if data not found.
 {
     if (list->next == NULL)                     // end of list
@@ -37,7 +40,7 @@ List *search_list(List *list, int data)
     }
     else                                        // data not found
     {
-        return search_list(list->next, data);   // call search function with next list
+        return search_list(list->next, data);   // call search function with next entry
     }
 }
 
@@ -46,7 +49,7 @@ void print_list(List *list)
 {
     if (list->next != NULL)         // not at end of linked list
     {
-        printf("%i\n", list->data); // print data
+        printf("%s\n", list->data); // print data
         print_list(list->next);     // pass next entry to function
     }
 }

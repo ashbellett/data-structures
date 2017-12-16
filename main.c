@@ -4,11 +4,11 @@ int main(void)
 {
     List *linked_list;              // initialise linked list
 
-    linked_list->next = NULL;       // set end of linked list
+    linked_list = create_list();    // create linked list
 
-    insert_list(&linked_list, 16);  // assign first entry
-    insert_list(&linked_list, 32);  // assign second entry
-    insert_list(&linked_list, 64);  // assign third entry
+    insert_list(&linked_list, "A"); // assign first entry
+    insert_list(&linked_list, "B"); // assign second entry
+    insert_list(&linked_list, "C"); // assign third entry
 
     print_list(linked_list);        // print data items in linked list
 
