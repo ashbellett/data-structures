@@ -15,7 +15,7 @@ int main(void)
     delete_list(&linked_list, "B"); // removes entry containing "B"
 
     printf("\n");
-    print_list(linked_list);        // print data items in linked list=
+    print_list(linked_list);        // print data items in linked list
 
     return 0;
 }
