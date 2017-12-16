@@ -45,6 +45,50 @@ List *search_list(List *list, char *data)
     }
 }
 
+List *previous_list(List *list, char *data)
+// Recursively finds pointer to previous entry in linked list.
+{
+    if ((list == NULL) || (list->next == NULL))     // at end of list
+    {
+        return NULL;                                // no previous entry
+    }
+
+    if (list->next->data == data)                   // at previous entry
+    {
+        return list;                                // return previous entry
+    }
+    else
+    {
+        return previous_list(list->next, data);    // call function using next entry
+    }
+}
+
+void delete_list(List **list, char *data)
+// Modifies linked list pointers to not reference entry.
+{
+    List *current;                              // pointer to current list
+    List *previous;                             // pointer to previous list
+
+    current = search_list(*list, data);         // get current entry
+
+    if (current != NULL)
+    {
+        previous = previous_list(*list, data);  // get previous entry
+
+        if (previous == NULL)                   // at start of linked list
+        {
+            *list = current->next;              // point to second entry
+        }
+
+        else                                    // somewhere past the first entry
+        {
+            previous->next = current->next;     // point previous entry to next entry
+        }
+
+        free(current);                          // delete entry (free memory)
+    }
+}
+
 void print_list(List *list)
 // Recursively prints entries in linked list.
 {
