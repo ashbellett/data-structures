@@ -1,8 +1,16 @@
 # Linked List
 A C implementation of a linked list data structure with creation, insertion, deletion and search functionality.
-## Usage
-From a command line, type:
+## Compile
+From a terminal, type:
+```shell
+gcc src/main.c src/functions.c -o main
 ```
-cc -o main main.c functions.c
+## Run
+From Unix:
+```
 ./main
+```
+From Windows:
+```
+main
 ```
