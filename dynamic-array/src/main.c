@@ -8,7 +8,7 @@ int main(void) {
     array = create_array(size);          // allocate memory for array
     insert_array(array, 1);              // insert first element in array
     insert_array(array, 2);              // insert second element in array
-    insert_array(array, 2);              // insert third element in array (dynamically resizes array)
+    insert_array(array, 3);              // insert third element in array (dynamically resizes array)
     result = search_array(array, value); // search for element in array
     printf(                              // print index of search result
         "Index of value %d: %d\n",
