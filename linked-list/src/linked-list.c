@@ -1,4 +1,4 @@
-#include "../include/functions.h"
+#include "../include/linked-list.h"
 
 List *create_list(void) {
     /* Returns an empty linked list with data and pointer items set to NULL. */
