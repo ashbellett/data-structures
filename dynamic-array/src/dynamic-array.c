@@ -3,7 +3,7 @@
 Array *create_array(int size) {
     /* Initialises array structure. */
     Array *array;                                    // initialise array
-    array = (Array *)malloc(sizeof(Array));                   // allocate memory for array structure
+    array = (Array *)malloc(sizeof(Array));          // allocate memory for array structure
     array->data = (int *)malloc(size * sizeof(int)); // allocate memory for elements
     array->elements = 0;                             // initially zero occupied elements
     array->size = size;                              // initial size of array
@@ -32,7 +32,7 @@ void delete_array(Array *array) {
 
 void print_array(Array *array) {
     /* Prints elements in array. */
-    for (int i = 0; i < array->elements; i++) {
-        printf("%d: %d\n", i, array->data[i]);
+    for (int i = 0; i < array->elements; i++) { // For each element
+        printf("%d: %d\n", i, array->data[i]);  // Print index and data
     }
 }
