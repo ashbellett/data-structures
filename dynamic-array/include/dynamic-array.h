@@ -1,8 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int *create_array(int size);
-void insert_array(int *array, int data);
-void remove_array(int *array, int data);
-void delete_array(int *array);
-void print_array(int *array, int size);
+typedef struct Array {
+  int *data;
+  int elements;
+  int size;
+} Array;
+
+Array *create_array(int size);
+void insert_array(Array *array, int data);
+void remove_array(Array *array, int data);
+void delete_array(Array *array);
+void print_array(Array *array);
