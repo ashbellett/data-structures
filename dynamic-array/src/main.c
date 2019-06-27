@@ -9,13 +9,14 @@ int main(void) {
     insert_array(array, 1);              // insert first element in array
     insert_array(array, 2);              // insert second element in array
     insert_array(array, 3);              // insert third element in array (dynamically resizes array)
-    print_array(array);                  // print elements in array
     result = search_array(array, value); // search for element in array
     printf(                              // print index of search result
         "Index of value %d: %d\n",
         value,
         result
     );
+    remove_array(array, value);          // Remove elements with value
+    print_array(array);                  // print elements in array
     delete_array(array);                 // clear array and free memory
     return 0;
 }

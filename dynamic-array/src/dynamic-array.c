@@ -19,7 +19,18 @@ void insert_array(Array *array, int data) {
             array->size * sizeof(int)
         );
     }
-    array->data[array->elements++] = data; // Insert data into next element
+    array->data[array->elements++] = data; // Insert data and increment occupied element count
+}
+
+void remove_array(Array *array, int data) {
+    for (int i = 0; i < array->elements; i++) {             // For each element
+        if (array->data[i] == data) {                       // If element matches search data
+            for (int j = i; j < array->elements - 1; j++) { // For remainder of elements
+                array->data[j] = array->data[j + 1];        // Replace current element with next element
+            }
+            array->elements--;
+        }
+    }
 }
 
 int search_array(Array *array, int data) {
