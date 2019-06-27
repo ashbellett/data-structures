@@ -3,14 +3,14 @@ A C implementation of a linked list data structure with creation, insertion, del
 ### Compile
 From a terminal, type:
 ```shell
-gcc src/main.c src/functions.c -o main
+gcc src/main.c src/linked-list.c -o linked-list
 ```
 ### Run
 From Unix:
 ```
-./main
+./linked-list
 ```
 From Windows:
 ```
-main
+linked-list
 ```
