@@ -30,6 +30,7 @@ void remove_array(Array *array, int data) {
                 array->data[j] = array->data[j + 1];        // Replace current element with next element
             }
             array->elements--;                              // Decrement occupied element count
+            remove_array(array, data);
         }
     }
 }
