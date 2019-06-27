@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 typedef struct Array {
-  int *data;
-  int elements;
-  int size;
+  /* Array structure containing elements, array length and maximum size. */
+  int *data;    // array elements
+  int elements; // occupied element count
+  int size;     // array size
 } Array;
 
 Array *create_array(int size);

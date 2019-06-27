@@ -15,7 +15,7 @@ int main(void) {
         value,
         result
     );
-    remove_array(array, value);          // Remove elements with value
+    remove_array(array, value);          // remove elements with value
     print_array(array);                  // print elements in array
     delete_array(array);                 // clear array and free memory
     return 0;
