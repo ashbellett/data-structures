@@ -1,11 +1,13 @@
 #include "../include/dynamic-array.h"
 
 int main(void) {
-    int *array;                 // pointer to first element in array
-    int size = 4;               // initial size of array
+    Array *array;               // pointer to first element in array
+    int size = 2;               // initial size of array
     array = create_array(size); // Allocate memory for array
-    insert_array(array, size);  // Insert data into array
-    print_array(array, size);   // Print elements in array
-    delete_array(array);        // Free array memory
+    insert_array(array, 1);     // Insert first element in array
+    insert_array(array, 2);     // Insert second element in array
+    insert_array(array, 3);     // Insert third element in array (dynamically resizes array)
+    print_array(array);         // Print elements in array
+    delete_array(array);        // Clear array and free memory
     return 0;
 }
