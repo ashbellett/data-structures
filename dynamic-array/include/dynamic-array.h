@@ -10,5 +10,6 @@ typedef struct Array {
 Array *create_array(int size);
 void insert_array(Array *array, int data);
 void remove_array(Array *array, int data);
+int search_array(Array *array, int data);
 void delete_array(Array *array);
 void print_array(Array *array);
