@@ -23,12 +23,13 @@ void insert_array(Array *array, int data) {
 }
 
 void remove_array(Array *array, int data) {
+    /* Removes first element whose value is data. */
     for (int i = 0; i < array->elements; i++) {             // For each element
         if (array->data[i] == data) {                       // If element matches search data
             for (int j = i; j < array->elements - 1; j++) { // For remainder of elements
                 array->data[j] = array->data[j + 1];        // Replace current element with next element
             }
-            array->elements--;
+            array->elements--;                              // Decrement occupied element count
         }
     }
 }
