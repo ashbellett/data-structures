@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "structures.h"
+
+typedef struct List {
+    /* Linked list structure containing data and pointer to next list. */
+    char *data;        // data item
+    struct List *next; // pointer to next list
+} List;
 
 List *create_list(void);
 void insert_list(List **list, char *data);

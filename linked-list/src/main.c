@@ -1,4 +1,4 @@
-#include "../include/functions.h"
+#include "../include/linked-list.h"
 
 int main(void) {
     List *linked_list;              // initialise linked list
