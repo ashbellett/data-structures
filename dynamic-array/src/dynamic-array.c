@@ -45,10 +45,10 @@ int search_array(Array *array, int data) {
 
 void delete_array(Array *array) {
     /* Frees array memory. */
-    free(array);
-    array->data = NULL;
-    array->elements = 0;
-    array->size = 0;
+    array->data = NULL;  // clear pointer to first element
+    array->elements = 0; // clear occupied element count
+    array->size = 0;     // clear array size
+    free(array);         // deallocate memory
 }
 
 void print_array(Array *array) {
