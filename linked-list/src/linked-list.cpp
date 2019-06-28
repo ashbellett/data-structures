@@ -77,5 +77,4 @@ int length(Node *list, int count=0) {
     } else {                       // end of list
         return count;              // return length
     }
-    
 }

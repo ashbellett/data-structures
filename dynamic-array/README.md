@@ -1,9 +1,9 @@
 ## Dynamic Array
-A C implementation of a dynamic array data structure with creation, insertion, deletion and search functionality.
+A C++ implementation of a dynamic array data structure with creation, insertion, deletion, search and length functionality.
 ### Compile
 From a terminal, type:
 ```shell
-gcc src/main.c src/dynamic-array.c -o dynamic-array
+g++ src/main.cpp src/dynamic-array.cpp -o dynamic-array
 ```
 ### Run
 From Unix:
