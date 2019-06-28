@@ -3,7 +3,7 @@ A C++ implementation of a linked list data structure with creation, insertion, d
 ### Compile
 From a terminal, type:
 ```shell
-gcc src/main.cpp src/linked-list.cpp -o linked-list
+g++ src/main.cpp src/linked-list.cpp -o linked-list
 ```
 ### Run
 From Unix:

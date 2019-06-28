@@ -1,16 +1,19 @@
+#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
+using namespace std;
 
-typedef struct Array {
-  /* Array structure containing elements, array length and maximum size. */
-  int *data;    // array elements
-  int elements; // occupied element count
-  int size;     // array size
-} Array;
+class Array {
+    public:
+        int *data;               // pointer to elements
+        int length;              // occupied elements count
+        int size;                // current maximum size
+        Array(int initial_size); // constructor
+};
 
-Array *create_array(int size);
-void insert_array(Array *array, int data);
-void remove_array(Array *array, int data);
-int search_array(Array *array, int data);
-void delete_array(Array *array);
-void print_array(Array *array);
+void insert(Array *array, int data);
+int search(Array *array, int data);
+void remove(Array *array, int data);
+void clear(Array *array);
+void print(Array *array);
+int length(Array *array);
