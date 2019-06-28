@@ -1,9 +1,9 @@
 ## Linked List
-A C implementation of a linked list data structure with creation, insertion, deletion and search functionality.
+A C++ implementation of a linked list data structure with creation, insertion, deletion, search and length functionality.
 ### Compile
 From a terminal, type:
 ```shell
-gcc src/main.c src/linked-list.c -o linked-list
+gcc src/main.cpp src/linked-list.cpp -o linked-list
 ```
 ### Run
 From Unix:
