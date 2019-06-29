@@ -1,4 +1,4 @@
-#include "../include/linked-list.h"
+#include "../include/linked-list.hh"
 
 int main(void) {
     Node *list = new Node();                    // Initialise list

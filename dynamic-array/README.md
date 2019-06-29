@@ -1,9 +1,9 @@
 ## Dynamic Array
-A C++ implementation of a dynamic array data structure with the following functionality:
+A C++ implementation of a dynamic array data structure with the following functionality:  
 ```length```: returns number of occupied elements in array.  
 ```capacity```: returns current maximum capacity of array.  
 ```print```: prints indexes and values of array.  
-```expand```: doubles the maximum capacity of array.
+```expand```: doubles the maximum capacity of array.  
 ```shrink```: halves the maximum capacity of array.  
 ```push```: inserts element at end of array.  
 ```pop```: returns and removes element at end of array.  

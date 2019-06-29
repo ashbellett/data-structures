@@ -1,5 +1,5 @@
 CXX=g++
-EXEC=dynamic-array
+EXEC=linked-list
 MAIN=main
 BIN=./bin
 OBJ=./obj

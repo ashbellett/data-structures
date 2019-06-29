@@ -1,4 +1,4 @@
-#include "../include/linked-list.h"
+#include "../include/linked-list.hh"
 
 Node::Node(void) {
     /* Called each time a new node is created. */
