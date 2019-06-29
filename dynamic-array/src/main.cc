@@ -1,42 +1,13 @@
 #include "../include/dynamic-array.hh"
+#include "../include/test-dynamic-array.hh"
 
 int main(void) {
-    Array<int> array;
-    // Push test
-    for (int i = 0; i < 10; i++) {
-        array.push(i);
-    }
-    // Print test
-    array.print();
-    cout << "\n";
-    // Pop test
-    cout << "First pop: " << array.pop() << "\n";
-    cout << "Second pop: " << array.pop() << "\n";
-    cout << "Third pop: " << array.pop() << "\n";
-    cout << "\n";
-    // Set test
-    array.set(2, 20);
-    array.set(3, 30);
-    array.set(4, 40);
-    array.print();
-    cout << "\n";
-    // Index test
-    cout << "Index of 30: " << array.index(30) << "\n";
-    cout << "\n";
-    // Length test
-    cout << "Length: " << array.length() << "\n";
-    // Capacity test
-    cout << "Capacity: " << array.capacity() << "\n";
-    cout << "\n";
-    // Clear test
-    array.clear();
-    array.print();
-    cout << "\n";
-    for (int i = 0; i < 4; i++) {
-        array.push(i);
-    }
-    array.print();
-    cout << "\n";
-    array.set(7, 4);
-    array.print();
+    perform_test(test_capacity, "Capacity:\t");
+    perform_test(test_clear, "Clear:\t\t");
+    perform_test(test_get, "Get:\t\t");
+    perform_test(test_index, "Index:\t\t");
+    perform_test(test_length, "Length:\t\t");
+    perform_test(test_pop, "Pop:\t\t");
+    perform_test(test_push, "Push:\t\t");
+    perform_test(test_set, "Set:\t\t");
 }
