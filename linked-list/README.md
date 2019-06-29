@@ -3,14 +3,14 @@ A C++ implementation of a linked list data structure with creation, insertion, d
 ### Compile
 From a terminal, type:
 ```shell
-g++ src/main.cpp src/linked-list.cpp -o linked-list
+make
 ```
 ### Run
 From Unix:
 ```
-./linked-list
+./bin/linked-list
 ```
 From Windows:
 ```
-linked-list
+"bin/linked-list"
 ```
