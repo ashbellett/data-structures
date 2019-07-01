@@ -1,80 +1,117 @@
 #include "../include/linked-list.hh"
 
-Node::Node(void) {
-    /* Called each time a new node is created. */
-    this->data = 0;       // set data value to zero
-    this->next = nullptr; // set end of list
+template <class T>
+List<T>::List() {
+    /* Initialise list. */
+    l_head = nullptr;
+    l_length = 0;
 }
 
-void insert(Node **list, int data) {
-    /* Inserts a node into linked list. */
-    Node *node = new Node(); // allocate memory
-    node->data = data;       // set data item
-    node->next = *list;      // set pointer of node to start of list
-    *list = node;            // set start of list to node
+template <class T>
+List<T>::~List() {
+    /* Terminate list. */
+    l_head = nullptr;
+    l_length = 0;
 }
 
-Node *search(Node *list, int data) {
-    /* Recursively searches for node containing search data. */
-    if (list->next == nullptr) {         // end of list
-        return nullptr;                  // no node found
-    }
-    if (list->data == data) {            // data found
-        return list;                     // return pointer to node
-    } else {                             // data not found
-        return search(list->next, data); // call search function with next node
-    }
+template <class T>
+void List<T>::clear() {
+    /* Reset end of list. */
+    l_head = nullptr;
+    l_length = 0;
 }
 
-Node *previous(Node *list, int data) {
-    /* Recursively finds pointer to previous node in list. */
-    if ((list == nullptr) || (list->next == nullptr)) { // at end of list
-        return nullptr;                                 // no previous node
-    }
-    if (list->next->data == data) {                     // at previous node
-        return list;                                    // return previous node
-    } else {                                            // not at previous node
-        return previous(list->next, data);              // call function using next node
-    }
+template <class T>
+bool List<T>::empty() {
+    /* Return whether list is empty. */
+    return l_head == nullptr && l_length == 0;
 }
 
-void remove(Node **list, int data) {
-    /* Modifies linked list pointers to not reference entry. */
-    Node *current;                        // pointer to current node
-    Node *before;                         // pointer to previous node
-    current = search(*list, data);        // get current node
-    if (current != nullptr) {             // not end of list
-        before = previous(*list, data);   // get previous node
-        if (previous == nullptr) {        // at start of list
-            *list = current->next;        // point to second node
-        } else {                          // somewhere past the first node
-            before->next = current->next; // point previous node to next node
+template <class T>
+Node<T> *List<T>::get(T data) {
+    /* Return node containing data. */
+    Node<T> *node = head();        // get first node in list
+    while (node != nullptr) {      // while not at end of list
+        if (node->get() == data) { // if current node contains data
+            return node;           // return current node
+        } else {                   // current node does not contain data
+            node = node->next();   // iterate to next node
         }
-        delete current;                   // deallocate memory of removed node
+    }
+    return nullptr;                // list does not contain data
+}
+
+template <class T>
+Node<T> *List<T>::head() {
+    /* Return pointer to start of list. */
+    return l_head;
+}
+
+template <class T>
+int List<T>::length() {
+    /* Return number of nodes in list. */
+    return l_length;
+}
+
+template <class T>
+void List<T>::link(Node<T> *node) {
+    /* Set pointer to first node in list. */
+    l_head = node;
+}
+
+template <class T>
+Node<T> *List<T>::pop() {
+    /* Return and remove first node in list. */
+    Node<T> *node = head(); // get first node in list
+    if (node == nullptr) {  // if empty list
+        return nullptr;     // nothing to pop
+    } else {                // non-empty list
+        link(node->next()); // set head to next node
+        l_length--;         // decrement list length
+        delete node;        // deallocate memory
+        return node;        // return head
     }
 }
 
-void clear(Node *list) {
-    /* Clears data, resets end of list and frees memory. */
-    list->data = 0;       // clear data
-    list->next = nullptr; // reset end of list
-    delete list;          // deallocate memory of list
-}
-
-void print(Node *list) {
-    /* Recursively prints nodes in linked list. */
-    if (list->next != nullptr) {    // if not at end of linked list
-        cout << list->data << "\n"; // print data
-        print(list->next);          // pass next node to print
+template <class T>
+void List<T>::print() {
+    /* Print node data and position in list. */
+    Node<T> *node = head();                                   // get first node in list
+    int position = 0;                                         // initialise position
+    while (node != nullptr) {                                 // while not at end of list
+        std::cout << position << ": " << node->get() << "\n"; // print data and position
+        position++;                                           // increment position
+        node = node->next();                                  // iterate to next node
     }
 }
 
-int length(Node *list, int count=0) {
-    /* Recursively calculate number of nodes in list. */
-    if (list->next != nullptr) {   // iterate through list
-        count++;                   // increment length
-        length(list->next, count); // pass next node to count
-    } else {                       // end of list
-        return count;              // return length
+template <class T>
+void List<T>::push(T data) {
+    /* Insert node into start of list. */
+    Node<T>* node = new Node<T>(); // allocate memory for new node
+    node->set(data);               // set node data
+    node->link(head());            // point node to first node in list
+    link(node);                    // point start of list to node
+    l_length++;                    // increment list length
+}
+
+template <class T>
+void List<T>::remove(Node<T> *node) {
+    /* Remove node from list. */
+    Node<T> *l_node = head();                     // get first node in list
+    while (l_node != nullptr) {                   // while not at end of list
+        if (l_node->next() == node) {             // if next node is node to be removed
+            l_node->link(l_node->next()->next()); // link current node to node after node to be removed
+            delete node;                          // deallocate memory
+            l_length--;                           // decrement list length
+        } else {                                  // next node is not node to be removed
+            l_node = l_node->next();              // iterate to next node
+        }
     }
+}
+
+template <class T>
+void List<T>::set(Node<T> *node, T data) {
+    /* Replace data of given node in list. */
+    node->set(data);
 }

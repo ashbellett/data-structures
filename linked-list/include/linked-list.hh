@@ -1,16 +1,27 @@
 #include <iostream>
-using namespace std;
+#include "node.hh"
 
-class Node {
+template <class T>
+class List {
+    private:
+        Node<T> *l_head; 
+        int l_length;
     public:
-        int data;   // data element
-        Node *next; // pointer to next node
-        Node();     // constructor
+        List();  // constructor
+        ~List(); // destructor
+        void clear(void);
+        bool empty(void);
+        Node<T> *get(T data);
+        Node<T> *head(void);
+        int length(void);
+        void link(Node<T> *node);
+        Node<T> *pop(void);
+        void print(void);
+        void push(T data);
+        void remove(Node<T> *node);
+        void set(Node<T> *node, T data);
 };
 
-void insert(Node **list, int data);
-void remove(Node **list, int data);
-Node *search(Node *list, int data);
-void clear(Node *list);
-void print(Node *list);
-int length(Node *list, int count);
+template class List<int>;
+template class List<float>;
+template class List<char>;
