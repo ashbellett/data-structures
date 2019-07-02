@@ -28,6 +28,16 @@ bool List<T>::empty() {
 }
 
 template <class T>
+void List<T>::fill(T data) {
+    /* Fills existing nodes with data. */
+    Node<T> *node = head();   // get first node in list
+    while (node != nullptr) { // while not at end of list
+        node->set(data);      // replace existing data
+        node = node->next();  // iterate to next node
+    }
+}
+
+template <class T>
 Node<T> *List<T>::get(T data) {
     /* Return node containing data. */
     Node<T> *node = head();        // get first node in list
@@ -98,14 +108,30 @@ void List<T>::push(T data) {
 template <class T>
 void List<T>::remove(Node<T> *node) {
     /* Remove node from list. */
-    Node<T> *l_node = head();                     // get first node in list
-    while (l_node != nullptr) {                   // while not at end of list
-        if (l_node->next() == node) {             // if next node is node to be removed
-            l_node->link(l_node->next()->next()); // link current node to node after node to be removed
-            delete node;                          // deallocate memory
-            l_length--;                           // decrement list length
-        } else {                                  // next node is not node to be removed
-            l_node = l_node->next();              // iterate to next node
+    Node<T> *l_node = head();                                 // get first node in list
+    if (l_head != nullptr) {                                  // if not empty list
+        if (l_head == node) {                                 // if node to be deleted is first node in list
+            if (l_head->next() == nullptr) {                  // if only one node in list
+                link(nullptr);                                // make node end of list
+            } else {                                          // more than one node in list
+                link(l_head->next());                         // link head to next node in list
+            }
+            delete node;                                      // deallocate memory
+            l_length--;                                       // decrement list length
+        } else {                                              // if node to be deleted is not first node in list
+            while (l_node != nullptr) {                       // while not at end of list
+                if (l_node->next() == node) {                 // if node to be deleted is next node in list
+                    if (l_node->next()->next() == nullptr) {  // if node to be deleted is at end of list
+                        l_node->link(nullptr);                // make current node end of list
+                    } else {                                  // node to be deleted is not at end of list
+                        l_node->link(l_node->next()->next()); // link current node to node after node to be removed
+                    }
+                    delete node;                              // deallocate memory
+                    l_length--;                               // decrement list length
+                } else {                                      // node to be deleted is not next node in list
+                    l_node = l_node->next();                  // iterate to next node
+                }
+            }
         }
     }
 }

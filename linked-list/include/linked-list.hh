@@ -11,6 +11,7 @@ class List {
         ~List(); // destructor
         void clear(void);
         bool empty(void);
+        void fill(T data);
         Node<T> *get(T data);
         Node<T> *head(void);
         int length(void);
