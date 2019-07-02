@@ -12,6 +12,7 @@ class Array {
         size_t capacity(void);
         void clear(void);
         void expand(void);
+        void fill(T data);
         T get(size_t index);
         int index(T data);
         size_t length(void);

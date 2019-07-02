@@ -28,6 +28,18 @@ bool test_clear(void) {
     return array.capacity() == 1 && array.length() == 0;
 }
 
+bool test_fill(void) {
+    Array<int> array;
+    // Insert 3 integers into array
+    for (int i = 0; i < 3; i++) {
+        array.push(i);
+    }
+    // Replace all elements with zeroes
+    array.fill(0);
+    // Correct values should be returned
+    return array.pop() == 0 && array.pop() == 0 && array.pop() == 0;
+}
+
 bool test_get(void) {
     Array<int> array;
     // Insert 5 integers into array

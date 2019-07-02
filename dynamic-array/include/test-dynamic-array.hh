@@ -3,6 +3,7 @@
 void perform_test(bool (&test)(void), std::string message);
 bool test_capacity(void);
 bool test_clear(void);
+bool test_fill(void);
 bool test_get(void);
 bool test_index(void);
 bool test_length(void);

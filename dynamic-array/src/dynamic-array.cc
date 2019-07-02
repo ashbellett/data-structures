@@ -35,6 +35,14 @@ void Array<T>::expand(void) {
 }
 
 template <class T>
+void Array<T>::fill(T data) {
+    /* Replaces each element in array with data. */
+    for (int i = 0; i < a_length; i++) { // for each element
+        *(a_data + (size_t) i) = data;   // replace element with data
+    }
+}
+
+template <class T>
 T Array<T>::get(size_t index) {
     /* Returns data at given index. */
     return *(a_data + index);
