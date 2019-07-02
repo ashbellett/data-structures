@@ -15,20 +15,26 @@ Array<T>::~Array() {
 }
 
 template <class T>
-size_t Array<T>::capacity(void) {
+size_t Array<T>::capacity() {
     /* Returns maximum array size. */
     return a_capacity;
 }
 
 template <class T>
-void Array<T>::clear(void) {
+void Array<T>::clear() {
     /* Resets array structure and frees memory. */
     a_capacity = 1; // reset array size
     a_length = 0;   // reset occupied element count
 }
 
 template <class T>
-void Array<T>::expand(void) {
+bool Array<T>::empty() {
+    /* Returns whether array is empty. */
+    return a_length == 0;
+}
+
+template <class T>
+void Array<T>::expand() {
     /* Expands maximum size of array. */
     a_capacity *= 2;                                             // double maximum size
     a_data = (T *)realloc(a_data, a_capacity * sizeof(*a_data)); // reallocate memory
@@ -60,13 +66,13 @@ int Array<T>::index(T data) {
 }
 
 template <class T>
-size_t Array<T>::length(void) {
+size_t Array<T>::length() {
     /* Returns number of occupied elements. */
     return a_length;
 }
 
 template <class T>
-T Array<T>::pop(void) {
+T Array<T>::pop() {
     /* Returns and removes one element at end of array. */
     if (2 * a_length <= a_capacity) { // if array capacity is excessive
         shrink();                     // shrink array capacity
@@ -75,7 +81,7 @@ T Array<T>::pop(void) {
 }
 
 template <class T>
-void Array<T>::print(void) {
+void Array<T>::print() {
     /* Prints each element and index in array. */
     for (int i = 0; i < a_length; i++) {          // for each element
         std::cout << i << ": " << get(i) << "\n"; // print index and data
@@ -100,7 +106,7 @@ void Array<T>::set(size_t index, T data) {
 }
 
 template <class T>
-void Array<T>::shrink(void) {
+void Array<T>::shrink() {
     /* Reduces maximum size of array. */
     a_capacity /= 2;                                             // halve maximum size
     a_data = (T *)realloc(a_data, a_capacity * sizeof(*a_data)); // reallocate memory

@@ -28,6 +28,18 @@ bool test_clear(void) {
     return array.capacity() == 1 && array.length() == 0;
 }
 
+bool test_empty(void) {
+    Array<int> array;
+    // Initial array should be empty
+    bool empty = array.empty();
+    // Insert 5 integers into array
+    for (int i = 0; i < 5; i++) {
+        array.push(i);
+    }
+    // Empty and non-empty tests should pass
+    return empty && !array.empty();
+}
+
 bool test_fill(void) {
     Array<int> array;
     // Insert 3 integers into array

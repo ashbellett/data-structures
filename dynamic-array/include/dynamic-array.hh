@@ -11,6 +11,7 @@ class Array {
         ~Array(); // destructor
         size_t capacity(void);
         void clear(void);
+        bool empty(void);
         void expand(void);
         void fill(T data);
         T get(size_t index);

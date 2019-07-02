@@ -4,6 +4,7 @@
 int main(void) {
     perform_test(test_capacity, "Capacity:\t");
     perform_test(test_clear, "Clear:\t\t");
+    perform_test(test_empty, "Empty:\t\t");
     perform_test(test_fill, "Fill:\t\t");
     perform_test(test_get, "Get:\t\t");
     perform_test(test_index, "Index:\t\t");
