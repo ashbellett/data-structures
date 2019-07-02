@@ -9,17 +9,17 @@ class Array {
     public:
         Array();  // constructor
         ~Array(); // destructor
-        size_t length(void);
         size_t capacity(void);
-        void print(void);
+        void clear(void);
         void expand(void);
-        void shrink(void);
-        void push(T data);
-        T pop(void);
-        void set(size_t index, T data);
         T get(size_t index);
         int index(T data);
-        void clear(void);
+        size_t length(void);
+        T pop(void);
+        void print(void);
+        void push(T data);
+        void set(size_t index, T data);
+        void shrink(void);
 };
 
 template class Array<int>;
