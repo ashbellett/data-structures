@@ -1,12 +1,11 @@
-#include "../include/dynamic-array.hh"
 #include "../include/test-dynamic-array.hh"
 
-void perform_test(bool (&test)(void), std::string message) {
+void performTest(bool (&test)(void), std::string message) {
     // Print whether the test passed or failed 
     std::cout << message << (test() ? "Passed" : "Failed") << "\n";
 }
 
-bool test_capacity(void) {
+bool testCapacity(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -16,7 +15,7 @@ bool test_capacity(void) {
     return array.capacity() == 8;
 }
 
-bool test_clear(void) {
+bool testClear(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -28,7 +27,7 @@ bool test_clear(void) {
     return array.capacity() == 1 && array.length() == 0;
 }
 
-bool test_empty(void) {
+bool testEmpty(void) {
     Array<int> array;
     // Initial array should be empty
     bool empty = array.empty();
@@ -40,7 +39,7 @@ bool test_empty(void) {
     return empty && !array.empty();
 }
 
-bool test_fill(void) {
+bool testFill(void) {
     Array<int> array;
     // Insert 3 integers into array
     for (int i = 0; i < 3; i++) {
@@ -52,7 +51,7 @@ bool test_fill(void) {
     return array.pop() == 0 && array.pop() == 0 && array.pop() == 0;
 }
 
-bool test_get(void) {
+bool testGet(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -62,7 +61,7 @@ bool test_get(void) {
     return array.get(0) == 0 && array.get(2) == 2 && array.get(4) == 4;
 }
 
-bool test_index(void) {
+bool testIndex(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -72,7 +71,7 @@ bool test_index(void) {
     return array.index(0) == 0 && array.index(2) == 2 && array.index(4) == 4;
 }
 
-bool test_length(void) {
+bool testLength(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -82,7 +81,7 @@ bool test_length(void) {
     return array.length() == 5;
 }
 
-bool test_pop(void) {
+bool testPop(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -92,7 +91,7 @@ bool test_pop(void) {
     return array.pop() == 4 && array.pop() == 3 && array.pop() == 2;
 }
 
-bool test_push(void) {
+bool testPush(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {
@@ -102,7 +101,7 @@ bool test_push(void) {
     return array.get(0) == 0 && array.get(2) == 2 && array.get(4) == 4;
 }
 
-bool test_set(void) {
+bool testSet(void) {
     Array<int> array;
     // Insert 5 integers into array
     for (int i = 0; i < 5; i++) {

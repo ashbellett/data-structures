@@ -1,14 +1,15 @@
 #include <string>
+#include "../include/linked-list.hh"
 
-void perform_test(bool (&test)(), std::string message);
-bool test_clear(void);
-bool test_empty(void);
-bool test_fill(void);
-bool test_get(void);
-bool test_head(void);
-bool test_length(void);
-bool test_link(void);
-bool test_pop(void);
-bool test_push(void);
-bool test_remove(void);
-bool test_set(void);
+void performTest(bool (&test)(), std::string message);
+bool testClear(void);
+bool testEmpty(void);
+bool testFill(void);
+bool testGet(void);
+bool testHead(void);
+bool testLength(void);
+bool testLink(void);
+bool testPop(void);
+bool testPush(void);
+bool testRemove(void);
+bool testSet(void);

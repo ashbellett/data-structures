@@ -2,8 +2,8 @@
 C++ implementations of various data structures:
 - Dynamic array
 - Linked list
-### To Do
 - Stack
+### To Do
 - Queue
 - Hash table
 - Binary tree

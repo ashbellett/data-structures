@@ -1,13 +1,14 @@
 #include <string>
+#include "../include/dynamic-array.hh"
 
-void perform_test(bool (&test)(void), std::string message);
-bool test_capacity(void);
-bool test_clear(void);
-bool test_empty(void);
-bool test_fill(void);
-bool test_get(void);
-bool test_index(void);
-bool test_length(void);
-bool test_pop(void);
-bool test_push(void);
-bool test_set(void);
+void performTest(bool (&test)(void), std::string message);
+bool testCapacity(void);
+bool testClear(void);
+bool testEmpty(void);
+bool testFill(void);
+bool testGet(void);
+bool testIndex(void);
+bool testLength(void);
+bool testPop(void);
+bool testPush(void);
+bool testSet(void);

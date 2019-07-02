@@ -1,12 +1,11 @@
-#include "../include/linked-list.hh"
 #include "../include/test-linked-list.hh"
 
-void perform_test(bool (&test)(void), std::string message) {
+void performTest(bool (&test)(void), std::string message) {
     // Print whether the test passed or failed 
     std::cout << message << (test() ? "Passed" : "Failed") << "\n";
 }
 
-bool test_clear(void) {
+bool testClear(void) {
     List<int> list;
     // Insert 5 nodes into list
     for (int i = 0; i < 5; i++) {
@@ -18,7 +17,7 @@ bool test_clear(void) {
     return list.head() == nullptr && list.length() == 0;
 }
 
-bool test_empty(void) {
+bool testEmpty(void) {
     List<int> list;
     // Initial list should be empty
     bool empty = list.empty();
@@ -30,7 +29,7 @@ bool test_empty(void) {
     return empty && !list.empty();
 }
 
-bool test_fill(void) {
+bool testFill(void) {
     List<int> list;
     // Insert 3 nodes into list
     for (int i = 0; i < 3; i++) {
@@ -42,7 +41,7 @@ bool test_fill(void) {
     return list.pop()->get() == 0 && list.pop()->get() == 0 && list.pop()->get() == 0;
 }
 
-bool test_get(void) {
+bool testGet(void) {
     List<int> list;
     // Insert 5 nodes into list
     for (int i = 0; i < 5; i++) {
@@ -52,7 +51,7 @@ bool test_get(void) {
     return list.get(0)->get() == 0 && list.get(2)->get() == 2 && list.get(4)->get() == 4;
 }
 
-bool test_head(void) {
+bool testHead(void) {
     List<int> list;
     // Initial head should point to end of list
     Node<int> *initialHead = list.head();
@@ -62,7 +61,7 @@ bool test_head(void) {
     return initialHead == nullptr && list.head() != nullptr;
 }
 
-bool test_length(void) {
+bool testLength(void) {
     List<int> list;
     // Initial length should be zero
     int initialLength = list.length();
@@ -74,7 +73,7 @@ bool test_length(void) {
     return initialLength == 0 && list.length() == 5;
 }
 
-bool test_link(void) {
+bool testLink(void) {
     List<int> list;
     // Create a node
     Node<int> *node;
@@ -84,7 +83,7 @@ bool test_link(void) {
     return list.head() == node;
 }
 
-bool test_pop(void) {
+bool testPop(void) {
     List<int> list;
     // Insert 5 nodes into list
     for (int i = 0; i < 5; i++) {
@@ -94,7 +93,7 @@ bool test_pop(void) {
     return list.pop()->get() == 4 && list.pop()->get() == 3 && list.pop()->get() == 2;
 }
 
-bool test_push(void) {
+bool testPush(void) {
     List<int> list;
     // Insert 5 nodes into list
     for (int i = 0; i < 5; i++) {
@@ -104,7 +103,7 @@ bool test_push(void) {
     return list.get(0)->get() == 0 && list.get(2)->get() == 2 && list.get(4)->get() == 4;
 }
 
-bool test_remove(void) {
+bool testRemove(void) {
     List<int> list;
     // Insert 5 nodes into list
     for (int i = 0; i < 3; i++) {
@@ -116,7 +115,7 @@ bool test_remove(void) {
     return list.length() == 2 && list.pop()->get() == 2 && list.pop()->get() == 0;
 }
 
-bool test_set(void) {
+bool testSet(void) {
     List<int> list;
     // Insert 5 nodes into list
     for (int i = 0; i < 5; i++) {
