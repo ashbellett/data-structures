@@ -10,4 +10,5 @@ int main(void) {
     perform_test(test_pop, "Pop:\t\t");
     perform_test(test_push, "Push:\t\t");
     perform_test(test_set, "Set:\t\t");
+    return 0;
 }

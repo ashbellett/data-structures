@@ -1,9 +1,9 @@
 #include "../include/dynamic-array.hh"
 #include "../include/test-dynamic-array.hh"
 
-void perform_test(bool (&test)(void), string message) {
+void perform_test(bool (&test)(void), std::string message) {
     // Print whether the test passed or failed 
-    cout << message << (test() ? "Passed" : "Failed") << "\n";
+    std::cout << message << (test() ? "Passed" : "Failed") << "\n";
 }
 
 bool test_capacity(void) {
@@ -22,9 +22,10 @@ bool test_clear(void) {
     for (int i = 0; i < 5; i++) {
         array.push(i);
     }
+    // Clear array
     array.clear();
     // Capacity should be 1 and length should be 0
-    return array.capacity() == 1 || array.length() == 0;
+    return array.capacity() == 1 && array.length() == 0;
 }
 
 bool test_get(void) {
@@ -83,6 +84,7 @@ bool test_set(void) {
     for (int i = 0; i < 5; i++) {
         array.push(i);
     }
+    // Replace 1 with 10 and 3 with 30
     array.set(1, 10);
     array.set(3, 30);
     // Correct values should be returned

@@ -10,6 +10,7 @@ TEST=./test
 all: setup ${EXEC} clean
 
 setup:
+	rm -rf $(BIN)
 	mkdir -p $(BIN) $(OBJ)
 
 ${EXEC}: ${EXEC}.o $(MAIN).o test-$(EXEC).o

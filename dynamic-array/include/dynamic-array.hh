@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 template <class T>
 class Array {
@@ -22,3 +21,7 @@ class Array {
         int index(T data);
         void clear(void);
 };
+
+template class Array<int>;
+template class Array<float>;
+template class Array<char>;

@@ -11,7 +11,7 @@ Array<T>::Array() {
 template <class T>
 Array<T>::~Array() {
     /* Terminates array object. */
-    free(a_data); // deallocate memory
+    free(a_data);
 }
 
 template <class T>
@@ -29,8 +29,8 @@ size_t Array<T>::capacity(void) {
 template <class T>
 void Array<T>::print(void) {
     /* Prints each element and index in array. */
-    for (int i = 0; i < a_length; i++) {     // for each element
-        cout << i << ": " << get(i) << "\n"; // print index and data
+    for (int i = 0; i < a_length; i++) {          // for each element
+        std::cout << i << ": " << get(i) << "\n"; // print index and data
     }
 }
 
@@ -97,7 +97,3 @@ void Array<T>::clear(void) {
     a_capacity = 1; // reset array size
     a_length = 0;   // reset occupied element count
 }
-
-template class Array<int>;
-template class Array<float>;
-template class Array<char>;

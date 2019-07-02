@@ -1,6 +1,6 @@
 #include <string>
 
-void perform_test(bool (&test)(void), string message);
+void perform_test(bool (&test)(void), std::string message);
 bool test_capacity(void);
 bool test_clear(void);
 bool test_get(void);
