@@ -1,18 +1,16 @@
 #include <iostream>
+#include "node.hh"
 
 template <class T>
 class Stack {
     private:
-        int s_capacity; // maximum number of elements
-        int s_length;   // occupied elements count
-        T *s_data;      // array of elements
+        Node<T> *s_head;  // pointer to top of stack
+        int s_length;  // number of nodes in stack
     public:
-        Stack(int capacity); // constructor
-        ~Stack();            // destructor
-        int capacity(void);
+        Stack();  // constructor
+        ~Stack(); // destructor
         void clear(void);
         bool empty(void);
-        bool full(void);
         int length(void);
         T peek(void);
         T pop(void);

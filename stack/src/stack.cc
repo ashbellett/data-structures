@@ -1,43 +1,30 @@
 #include "../include/stack.hh"
 
 template <class T>
-Stack<T>::Stack(int capacity) {
+Stack<T>::Stack() {
     /* Initialise stack. */
-    s_capacity = capacity;      // set capacity
-    s_data = new T[s_capacity]; // allocate stack memory
-    s_length = 0;               // initialise zero length
+    s_head = nullptr;
+    s_length = 0;
 }
 
 template <class T>
 Stack<T>::~Stack() {
     /* Terminate stack. */
-    delete s_data;
-}
-
-template <class T>
-int Stack<T>::capacity() {
-    /* Return stack capacity. */
-    return s_capacity;
+    s_head = nullptr;
+    s_length = 0;
 }
 
 template <class T>
 void Stack<T>::clear() {
-    /* Delete and initialise new stack. */
-    delete s_data;              // deallocate memory
-    s_data = new T[s_capacity]; // allocate stack memory
-    s_length = 0;               // initialise zero length
+    /* Reset stack. */
+    s_head = nullptr;
+    s_length = 0;
 }
 
 template <class T>
 bool Stack<T>::empty() {
     /* Return whether there are elements in stack. */
-    return s_length == 0;
-}
-
-template <class T>
-bool Stack<T>::full() {
-    /* Return whether stack capacity is reached. */
-    return s_length == s_capacity;
+    return s_head == nullptr && s_length == 0;
 }
 
 template <class T>
@@ -48,24 +35,33 @@ int Stack<T>::length() {
 
 template <class T>
 T Stack<T>::peek() {
-    /* Return data at end of stack. */
-    return s_data[s_length];
+    /* Return data at top of stack. */
+    return s_head->get();
 }
 
 template <class T>
 T Stack<T>::pop() {
-    /* Return and remove data at end of stack. */
-    if (s_length > 0) {            // if stack is not empty
-        return s_data[s_length--]; // return data and decrement length
-    } else {                       // stack is empty
-        return (T) 0;              // return zero
+    /* Return and remove data at top of stack. */
+    if (s_length > 0) {              // if stack is not empty
+        Node<T> *node = s_head;      // get top node in stack
+        if (s_length == 1) {         // only one node in stack
+            s_head = nullptr;        // terminate stack
+        } else {                     // at least two nodes in stack
+            s_head = s_head->next(); // point head to next node
+        }
+        s_length--;                  // decrement stack length
+        return node->get();          // return data at top of stack
+    } else {                         // stack is empty
+        return (T) 0;                // return zero
     }
 }
 
 template <class T>
 void Stack<T>::push(T data) {
-    /* Insert data at end of stack. */
-    if (s_length <= s_capacity) {  // if capacity is not exceeded
-        s_data[++s_length] = data; // insert data into stack
-    }
+    /* Insert data at top of stack. */
+    Node<T>* node = new Node<T>(); // allocate memory for new node
+    node->set(data);
+    node->link(s_head);            // point node to first node in list
+    s_head = node;
+    s_length++;                    // increment list length
 }

@@ -5,16 +5,9 @@ void performTest(bool (&test)(void), std::string message) {
     std::cout << message << (test() ? "Passed" : "Failed") << "\n";
 }
 
-bool testCapacity(void) {
-    // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
-    // Check whether capacity equals 5
-    return stack.capacity() == 5;
-}
-
 bool testClear(void) {
     // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
+    Stack<int> stack;
     // Insert 5 elements into stack
     for (int i = 0; i < 5; i++) {
         stack.push(i);
@@ -26,7 +19,7 @@ bool testClear(void) {
 
 bool testEmpty(void) {
     // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
+    Stack<int> stack;
     // Initial stack should be empty
     bool empty = stack.empty();
     // Insert 5 elements into stack
@@ -37,22 +30,9 @@ bool testEmpty(void) {
     return empty && !stack.empty();
 }
 
-bool testFull(void) {
-    // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
-    // Initial stack should not be full
-    bool full = stack.full();
-    // Insert 5 elements into stack
-    for (int i = 0; i < 5; i++) {
-        stack.push(i);
-    }
-    // Full and non-full tests should pass
-    return !full && stack.full();
-}
-
 bool testLength(void) {
     // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
+    Stack<int> stack;
     // Initial length should be zero
     bool length = stack.length();
     // Insert 5 elements into stack
@@ -65,7 +45,7 @@ bool testLength(void) {
 
 bool testPeek(void) {
     // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
+    Stack<int> stack;
     // Insert 5 elements into stack
     for (int i = 0; i < 5; i++) {
         stack.push(i);
@@ -76,7 +56,7 @@ bool testPeek(void) {
 
 bool testPop(void) {
     // Create stack with capacity of 5 elements
-    Stack<int> stack(5);
+    Stack<int> stack;
     // Insert 5 elements into stack
     for (int i = 0; i < 5; i++) {
         stack.push(i);
@@ -87,7 +67,7 @@ bool testPop(void) {
 
 bool testPush(void) {
     // Create stack with capacity of 3 elements
-    Stack<int> stack(3);
+    Stack<int> stack;
     // Insert 3 elements into stack
     for (int i = 0; i < 3; i++) {
         stack.push(i);
