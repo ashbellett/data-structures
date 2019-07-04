@@ -1,7 +1,7 @@
 ## Stack
 A C++ implementation of a stack data structure.
 ### Class Data Members
-```s_data```: pointer to first element in stack.  
+```s_head```: pointer to first element in stack.  
 ```s_length```: number of elements in stack.
 ### Class Member Functions 
 ```clear```: resets stack.  
