@@ -14,6 +14,7 @@ bool testClear(void) {
     }
     // Clear stack
     stack.clear();
+    // Length should be zero
     return stack.length() == 0;
 }
 
@@ -39,7 +40,7 @@ bool testLength(void) {
     for (int i = 0; i < 5; i++) {
         stack.push(i);
     }
-    // length tests should pass
+    // Length tests should pass
     return length == 0 && stack.length() == 5;
 }
 

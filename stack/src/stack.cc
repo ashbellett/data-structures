@@ -44,7 +44,7 @@ T Stack<T>::pop() {
     /* Return and remove data at top of stack. */
     if (s_length > 0) {              // if stack is not empty
         Node<T> *node = s_head;      // get top node in stack
-        if (s_length == 1) {         // only one node in stack
+        if (s_length == 1) {         // if only one node in stack
             s_head = nullptr;        // terminate stack
         } else {                     // at least two nodes in stack
             s_head = s_head->next(); // point head to next node
@@ -60,8 +60,8 @@ template <class T>
 void Stack<T>::push(T data) {
     /* Insert data at top of stack. */
     Node<T>* node = new Node<T>(); // allocate memory for new node
-    node->set(data);
+    node->set(data);               // insert data into node
     node->link(s_head);            // point node to first node in list
-    s_head = node;
+    s_head = node;                 // point stack head to node
     s_length++;                    // increment list length
 }

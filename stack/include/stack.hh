@@ -4,8 +4,8 @@
 template <class T>
 class Stack {
     private:
-        Node<T> *s_head;  // pointer to top of stack
-        int s_length;  // number of nodes in stack
+        Node<T> *s_head; // pointer to top of stack
+        int s_length;    // number of nodes in stack
     public:
         Stack();  // constructor
         ~Stack(); // destructor
