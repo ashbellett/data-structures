@@ -5,11 +5,11 @@ C++ implementations of various data structures:
 - Stack
 - Queue
 ### To Do
-- Hash table
+- Tree
 - Binary tree
-- M-ary tree
 - Heap
 - Graph
+- Map
 ## Pre-requisites
 ```gcc```: https://gcc.gnu.org/  
 ```make```: https://www.gnu.org/software/make/
