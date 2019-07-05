@@ -5,7 +5,7 @@ A C++ implementation of a stack data structure.
 ```s_length```: number of nodes in stack.
 ### Class Member Functions 
 ```clear```: resets stack.  
-```empty```: returns whether the stack has no elements.  
+```empty```: returns whether the stack has no nodes.  
 ```head```: returns first node in stack.  
 ```length```: returns number of nodes in stack.  
 ```link```: sets pointer to first node in stack.  

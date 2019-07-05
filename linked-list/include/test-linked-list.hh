@@ -1,5 +1,5 @@
 #include <string>
-#include "../include/linked-list.hh"
+#include "linked-list.hh"
 
 void performTest(bool (&test)(), std::string message);
 bool testClear(void);

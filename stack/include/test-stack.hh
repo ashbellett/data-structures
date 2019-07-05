@@ -1,5 +1,5 @@
 #include <string>
-#include "../include/stack.hh"
+#include "stack.hh"
 
 void performTest(bool (&test)(void), std::string message);
 bool testClear(void);

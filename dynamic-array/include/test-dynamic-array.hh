@@ -1,5 +1,5 @@
 #include <string>
-#include "../include/dynamic-array.hh"
+#include "dynamic-array.hh"
 
 void performTest(bool (&test)(void), std::string message);
 bool testCapacity(void);
