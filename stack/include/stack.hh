@@ -13,7 +13,6 @@ class Stack {
         bool empty(void);
         Node<T> *head(void);
         int length(void);
-        void link(Node<T> *node);
         T peek(void);
         T pop(void);
         void push(T data);

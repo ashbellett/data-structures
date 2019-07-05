@@ -6,13 +6,14 @@ class Array {
         size_t a_capacity; // current maximum array size
         size_t a_length;   // occupied elements count
         T *a_data;         // pointer to elements
+        void expand(void);
+        void shrink(void);
     public:
         Array();  // constructor
         ~Array(); // destructor
         size_t capacity(void);
         void clear(void);
         bool empty(void);
-        void expand(void);
         void fill(T data);
         T get(size_t index);
         int index(T data);
@@ -21,7 +22,6 @@ class Array {
         void print(void);
         void push(T data);
         void set(size_t index, T data);
-        void shrink(void);
 };
 
 template class Array<int>;

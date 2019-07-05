@@ -19,6 +19,12 @@ T Node<T>::get() {
 }
 
 template <class T>
+void Node<T>::link(Node *node) {
+    /* Set pointer to next node. */
+    n_next = node;
+}
+
+template <class T>
 Node<T> *Node<T>::next() {
     /* Returns address of next node. */
     return n_next;
@@ -28,10 +34,4 @@ template <class T>
 void Node<T>::set(T data) {
     /* Set node with new data. */
     n_data = data;
-}
-
-template <class T>
-void Node<T>::link(Node *node) {
-    /* Set pointer to next node. */
-    n_next = node;
 }

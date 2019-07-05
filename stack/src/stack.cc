@@ -17,7 +17,7 @@ Stack<T>::~Stack() {
 template <class T>
 void Stack<T>::clear() {
     /* Reset stack. */
-    link(nullptr);
+    s_head = nullptr;
     s_length = 0;
 }
 
@@ -40,12 +40,6 @@ int Stack<T>::length() {
 }
 
 template <class T>
-void Stack<T>::link(Node<T> *node) {
-    /* Set pointer to first node in stack. */
-    s_head = node;
-}
-
-template <class T>
 T Stack<T>::peek() {
     /* Return data at top of stack. */
     return head()->get();
@@ -54,17 +48,17 @@ T Stack<T>::peek() {
 template <class T>
 T Stack<T>::pop() {
     /* Return and remove data at top of stack. */
-    if (length() > 0) {           // if stack is not empty
-        Node<T> *node = head();   // get top node in stack
-        if (length() == 1) {      // if only one node in stack
-            link(nullptr);        // terminate stack
-        } else {                  // at least two nodes in stack
-            link(head()->next()); // point head to next node
+    if (length() > 0) {              // if stack is not empty
+        Node<T> *node = head();      // get top node in stack
+        if (length() == 1) {         // if only one node in stack
+            s_head = nullptr;        // terminate stack
+        } else {                     // at least two nodes in stack
+            s_head = head()->next(); // point head to next node
         }
-        s_length--;               // decrement stack length
-        return node->get();       // return data at top of stack
-    } else {                      // stack is empty
-        return (T) 0;             // return zero
+        s_length--;                  // decrement stack length
+        return node->get();          // return data at top of stack
+    } else {                         // stack is empty
+        return (T) 0;                // return zero
     }
 }
 
@@ -74,6 +68,6 @@ void Stack<T>::push(T data) {
     Node<T>* node = new Node<T>(); // allocate memory for new node
     node->set(data);               // insert data into node
     node->link(s_head);            // point node to first node in list
-    link(node);                    // point stack head to node
+    s_head = node;                 // point stack head to node
     s_length++;                    // increment list length
 }

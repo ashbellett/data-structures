@@ -73,16 +73,6 @@ bool testLength(void) {
     return initialLength == 0 && list.length() == 5;
 }
 
-bool testLink(void) {
-    List<int> list;
-    // Create a node
-    Node<int> *node;
-    // Link node to list
-    list.link(node);
-    // Head should point to node
-    return list.head() == node;
-}
-
 bool testPop(void) {
     List<int> list;
     // Insert 5 nodes into list

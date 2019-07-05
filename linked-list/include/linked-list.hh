@@ -15,7 +15,6 @@ class List {
         Node<T> *get(T data);
         Node<T> *head(void);
         int length(void);
-        void link(Node<T> *node);
         Node<T> *pop(void);
         void print(void);
         void push(T data);

@@ -24,7 +24,7 @@ void List<T>::clear() {
 template <class T>
 bool List<T>::empty() {
     /* Return whether list is empty. */
-    return l_head == nullptr && l_length == 0;
+    return head() == nullptr && length() == 0;
 }
 
 template <class T>
@@ -64,22 +64,16 @@ int List<T>::length() {
 }
 
 template <class T>
-void List<T>::link(Node<T> *node) {
-    /* Set pointer to first node in list. */
-    l_head = node;
-}
-
-template <class T>
 Node<T> *List<T>::pop() {
     /* Return and remove first node in list. */
-    Node<T> *node = head(); // get first node in list
-    if (node == nullptr) {  // if empty list
-        return nullptr;     // nothing to pop
-    } else {                // non-empty list
-        link(node->next()); // set head to next node
-        l_length--;         // decrement list length
-        delete node;        // deallocate memory
-        return node;        // return head
+    Node<T> *node = head();    // get first node in list
+    if (node == nullptr) {     // if empty list
+        return nullptr;        // nothing to pop
+    } else {                   // non-empty list
+        l_head = node->next(); // set head to next node
+        l_length--;            // decrement list length
+        delete node;           // deallocate memory
+        return node;           // return head
     }
 }
 
@@ -101,7 +95,7 @@ void List<T>::push(T data) {
     Node<T>* node = new Node<T>(); // allocate memory for new node
     node->set(data);               // set node data
     node->link(head());            // point node to first node in list
-    link(node);                    // point start of list to node
+    l_head = node;                 // point start of list to node
     l_length++;                    // increment list length
 }
 
@@ -109,12 +103,12 @@ template <class T>
 void List<T>::remove(Node<T> *node) {
     /* Remove node from list. */
     Node<T> *l_node = head();                                 // get first node in list
-    if (l_head != nullptr) {                                  // if not empty list
-        if (l_head == node) {                                 // if node to be deleted is first node in list
-            if (l_head->next() == nullptr) {                  // if only one node in list
-                link(nullptr);                                // make node end of list
+    if (head() != nullptr) {                                  // if not empty list
+        if (head() == node) {                                 // if node to be deleted is first node in list
+            if (head()->next() == nullptr) {                  // if only one node in list
+                l_head = nullptr;                             // make node end of list
             } else {                                          // more than one node in list
-                link(l_head->next());                         // link head to next node in list
+                l_head->link(head()->next());                 // link head to next node in list
             }
             delete node;                                      // deallocate memory
             l_length--;                                       // decrement list length

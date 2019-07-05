@@ -7,9 +7,9 @@ class Node {
         Node();  // constructor
         ~Node(); // destructor
         T get(void);
+        void link(Node *node);
         Node<T> *next(void);
         void set(T data);
-        void link(Node *node);
 };
 
 template class Node<int>;

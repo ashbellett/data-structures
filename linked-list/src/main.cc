@@ -7,7 +7,6 @@ int main(void) {
     performTest(testGet, "Get:\t\t");
     performTest(testHead, "Head:\t\t");
     performTest(testLength, "Length:\t\t");
-    performTest(testLink, "Link:\t\t");
     performTest(testPop, "Pop:\t\t");
     performTest(testPush, "Push:\t\t");
     performTest(testRemove, "Remove:\t\t");
