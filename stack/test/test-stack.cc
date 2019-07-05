@@ -31,6 +31,19 @@ bool testEmpty(void) {
     return empty && !stack.empty();
 }
 
+bool testHead(void) {
+    // Initialise stack
+    Stack<int> stack;
+    // Initial head should be null
+    Node<int> *head = stack.head();
+    // Initialise node
+    Node<int> *node;
+    // Point head to node
+    stack.link(node);
+    // Head tests should pass
+    return head == nullptr && stack.head() == node;
+}
+
 bool testLength(void) {
     // Create stack with capacity of 5 elements
     Stack<int> stack;
@@ -42,6 +55,17 @@ bool testLength(void) {
     }
     // Length tests should pass
     return length == 0 && stack.length() == 5;
+}
+
+bool testLink(void) {
+    // Initialise stack
+    Stack<int> stack;
+    // Initialise node
+    Node<int> *node;
+    // Point head to node
+    stack.link(node);
+    // Head should point to linked node
+    return stack.head() == node;
 }
 
 bool testPeek(void) {

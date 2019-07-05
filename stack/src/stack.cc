@@ -17,14 +17,20 @@ Stack<T>::~Stack() {
 template <class T>
 void Stack<T>::clear() {
     /* Reset stack. */
-    s_head = nullptr;
+    link(nullptr);
     s_length = 0;
 }
 
 template <class T>
 bool Stack<T>::empty() {
     /* Return whether there are elements in stack. */
-    return s_head == nullptr && s_length == 0;
+    return head() == nullptr && length() == 0;
+}
+
+template <class T>
+Node<T> *Stack<T>::head() {
+    /* Return first node in stack. */
+    return s_head;
 }
 
 template <class T>
@@ -34,25 +40,31 @@ int Stack<T>::length() {
 }
 
 template <class T>
+void Stack<T>::link(Node<T> *node) {
+    /* Set pointer to first node in stack. */
+    s_head = node;
+}
+
+template <class T>
 T Stack<T>::peek() {
     /* Return data at top of stack. */
-    return s_head->get();
+    return head()->get();
 }
 
 template <class T>
 T Stack<T>::pop() {
     /* Return and remove data at top of stack. */
-    if (s_length > 0) {              // if stack is not empty
-        Node<T> *node = s_head;      // get top node in stack
-        if (s_length == 1) {         // if only one node in stack
-            s_head = nullptr;        // terminate stack
-        } else {                     // at least two nodes in stack
-            s_head = s_head->next(); // point head to next node
+    if (length() > 0) {           // if stack is not empty
+        Node<T> *node = head();   // get top node in stack
+        if (length() == 1) {      // if only one node in stack
+            link(nullptr);        // terminate stack
+        } else {                  // at least two nodes in stack
+            link(head()->next()); // point head to next node
         }
-        s_length--;                  // decrement stack length
-        return node->get();          // return data at top of stack
-    } else {                         // stack is empty
-        return (T) 0;                // return zero
+        s_length--;               // decrement stack length
+        return node->get();       // return data at top of stack
+    } else {                      // stack is empty
+        return (T) 0;             // return zero
     }
 }
 
@@ -62,6 +74,6 @@ void Stack<T>::push(T data) {
     Node<T>* node = new Node<T>(); // allocate memory for new node
     node->set(data);               // insert data into node
     node->link(s_head);            // point node to first node in list
-    s_head = node;                 // point stack head to node
+    link(node);                    // point stack head to node
     s_length++;                    // increment list length
 }
