@@ -43,7 +43,7 @@ void Array<T>::expand() {
 template <class T>
 void Array<T>::fill(T data) {
     /* Replaces each element in array with data. */
-    for (int i = 0; i < a_length; i++) { // for each element
+    for (unsigned short int i = 0; i < a_length; i++) { // for each element
         *(a_data + (size_t) i) = data;   // replace element with data
     }
 }
@@ -57,7 +57,7 @@ T Array<T>::get(size_t index) {
 template <class T>
 int Array<T>::index(T data) {
     /* Searches for element in array and returns index. */
-    for (int i = 0; i < a_length; i++) { // for each element
+    for (unsigned short int i = 0; i < a_length; i++) { // for each element
         if (a_data[(size_t)i] == data) { // if element matches search data
             return i;                    // return index
         }
@@ -83,7 +83,7 @@ T Array<T>::pop() {
 template <class T>
 void Array<T>::print() {
     /* Prints each element and index in array. */
-    for (int i = 0; i < a_length; i++) {          // for each element
+    for (unsigned short int i = 0; i < a_length; i++) {          // for each element
         std::cout << i << ": " << get(i) << "\n"; // print index and data
     }
 }
